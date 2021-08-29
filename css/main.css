@@ -167,3 +167,15 @@ li a.dropdown-item:hover {
     margin-top: 0;
   }
 }
+
+/* carusel */
+.my-carusel {
+  padding: 0;
+}
+.my-carusel .carusel-item {
+  display: flex;
+  max-height: 500px;
+}
+.my-carusel .carusel-item img {
+  object-fit: cover;
+}
