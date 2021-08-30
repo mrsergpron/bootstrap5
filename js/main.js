@@ -1,27 +1,43 @@
-$(function () {
-  $(".open-search").click(function (event) {
-    event.preventDefault();
-    $("#search").addClass("active");
-  });
+$(function() {
 
-  $(".close-search").click(function (event) {
-    event.preventDefault();
-    $("#search").removeClass("active");
-  });
+	$('.open-search').click(function(e) {
+		e.preventDefault();
+		$('#search').addClass('active');
+	});
 
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 200) {
-      $("#top").fadeIn();
-    } else {
-      $("#top").fadeOut();
-    }
-  });
+	$('.close-search').click(function() {
+		$('#search').removeClass('active');
+	});
 
-  $("#top").click(function () {
-    $("body, html").animate({ scrollTop: 0 }, 700);
-  });
+	$(window).scroll(function() {
+		if ($(this).scrollTop() > 200) {
+			$('#top').fadeIn();
+		} else {
+			$('#top').fadeOut();
+		}
+	});
 
-  $(".sidebar-toggler .btn").click(function () {
-    $(".sidebar-toggle").slideToggle();
-  });
+	$('#top').click(function() {
+		$('body, html').animate({scrollTop: 0}, 700);
+	});
+
+	$('.sidebar-toggler .btn').click(function() {
+		$('.sidebar-toggle').slideToggle();
+	});
+
+	$('.thumbnails').magnificPopup({
+		type:'image',
+		delegate: 'a',
+		gallery: {
+			enabled: true
+		},
+		removalDelay: 500,
+		callbacks: {
+			beforeOpen: function() {
+				this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+				this.st.mainClass = this.st.el.attr('data-effect');
+			}
+		}
+	});
+
 });
